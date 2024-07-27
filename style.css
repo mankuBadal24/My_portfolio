@@ -704,6 +704,10 @@ footer {
   }
   .nav__menu{
     width: initial;
+    padding-top: 2rem;
+  }
+  .nav__logo{
+      padding-top: 2rem;
   }
 }
 
