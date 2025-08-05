@@ -24,6 +24,29 @@ const linkAction = () =>{
 }
 navLink.forEach(n=> n.addEventListener('click',linkAction))
 
+// contact form submit
+
+const contactForm = document.getElementById("contact--form");
+const contactMessage = document.getElementById("contact-message");
+
+contactForm.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  emailjs.sendForm('service_4kplxog', 'template_b6tgjzd', '#contact--form', 'gGXySDvisuTSsDi-_')
+    .then(() => {
+      contactMessage.textContent = "✅ Message sent successfully!";
+      contactMessage.style.color = "green";
+      contactForm.reset();
+
+      setTimeout(() => {
+        contactMessage.textContent = "";
+      }, 5000);
+    }, (error) => {
+      contactMessage.textContent = "❌ Message failed to send. Try again.";
+      contactMessage.style.color = "red";
+    });
+});
+
 
 
 // === Change Backgroud header ===
